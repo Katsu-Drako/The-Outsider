@@ -152,7 +152,7 @@ MonoBehaviour:
   GUID: a0dc036c-4fc3-4139-b41a-8d5fbc0f1167
   MouseSensitivity: 5
   ZoomSensitivity: 5
-  MinZoom: 0
+  MinZoom: 6
   MaxZoom: 10
   Axi:
   - Name: Horizontal
@@ -161,8 +161,8 @@ MonoBehaviour:
     Negative: 97
     AltPositive: 275
     AltNegative: 276
-    Snappiness: 0.25
-    Gravity: 0.5
+    Snappiness: 1
+    Gravity: 1
     _bPositive: 0
     _bNegative: 0
     _value: 0
@@ -174,8 +174,8 @@ MonoBehaviour:
     Negative: 115
     AltPositive: 273
     AltNegative: 274
-    Snappiness: 0.25
-    Gravity: 0.5
+    Snappiness: 1
+    Gravity: 1
     _bPositive: 0
     _bNegative: 0
     _value: 0
@@ -203,8 +203,8 @@ MonoBehaviour:
   - Name: Interact
     ECommand: 1
     KeyCode: 102
-  _zoom: 0
-  _orbitXY: {x: 0, y: 0}
+  _zoom: 8
+  _orbitXY: {x: 0, y: -12.25}
 --- !u!4 &1874850364
 Transform:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     protected InputManager _inputManager;
     protected Rigidbody _rigidbody;
     protected GroundChecker _groundChecker;
-    protected Vector3 _movementDirection = new Vector3(), _cameraOffset = Vector3.up * 2f;
+    protected Vector3 _movementDirection = new Vector3(), _cameraOffset = Vector3.up * 1.75f, _projectedVelocity;
     protected List<Vector3> _pushForces = new List<Vector3>();
     protected void Awake() {
         _inputManager = Manager.Get<InputManager>();
@@ -22,9 +22,13 @@ public class Player : MonoBehaviour
         }
     }
     protected void FixedUpdate() {
+        _projectedVelocity = Vector3.ProjectOnPlane(_rigidbody.velocity, Vector3.up);
         if (_movementDirection.magnitude > 0 && MovementSpeed > 0)
         {
-            _rigidbody.AddForce(_movementDirection * Mathf.Lerp(MovementSpeed, MovementSpeed * Time.deltaTime, _rigidbody.velocity.magnitude / MovementSpeed), ForceMode.Impulse);
+            _rigidbody.AddForce(_movementDirection * Mathf.Lerp(MovementSpeed, MovementSpeed * Time.deltaTime, _projectedVelocity.magnitude / MovementSpeed), ForceMode.Impulse);
+        }
+        else {
+            _rigidbody.AddForce(-_projectedVelocity.normalized * Mathf.Lerp(MovementSpeed, MovementSpeed * Time.deltaTime, Mathf.Clamp01(1f - _projectedVelocity.magnitude / MovementSpeed)), ForceMode.Impulse);
         }
         foreach (Vector3 pushForce in _pushForces) {
             _rigidbody.AddForce(pushForce, ForceMode.Impulse);
