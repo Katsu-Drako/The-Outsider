@@ -152,8 +152,8 @@ MonoBehaviour:
   GUID: a0dc036c-4fc3-4139-b41a-8d5fbc0f1167
   MouseSensitivity: 5
   ZoomSensitivity: 5
-  MinZoom: 6
-  MaxZoom: 10
+  MinZoom: 10
+  MaxZoom: 16
   Axi:
   - Name: Horizontal
     EAxis: 0
@@ -203,7 +203,7 @@ MonoBehaviour:
   - Name: Interact
     ECommand: 1
     KeyCode: 102
-  _zoom: 8
+  _zoom: 13
   _orbitXY: {x: 0, y: -12.25}
 --- !u!4 &1874850364
 Transform:

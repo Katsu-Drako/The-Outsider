@@ -6,13 +6,13 @@ using UnityEngine;
 public class InputManager : PersistentManager
 {
     protected const string _mouseX = "Mouse X", _mouseY = "Mouse Y", _mouseScrollWheel = "Mouse ScrollWheel";
-    public float MouseSensitivity = 5f, ZoomSensitivity = 5f, MinZoom = 6f, MaxZoom = 10f;
+    public float MouseSensitivity = 5f, ZoomSensitivity = 5f, MinZoom = 10f, MaxZoom = 14f;
     [Header("Default snappiness 0.25, default gravity 0.5")]
     public List<Axis> Axi = DefaultAxi();
     public List<MouseButtonAxis> MouseButtonAxi = DefaultMouseButtonAxi();
     public List<Command> Commands = DefaultCommands();
     [SerializeField, HideInInspector]
-    protected float _zoom = 8f;
+    protected float _zoom = 12f;
     [SerializeField, HideInInspector]
     protected Vector2 _orbitXY = new Vector2(0, -12.25f);
     public float Zoom {
@@ -95,7 +95,7 @@ public class InputManager : PersistentManager
     }
     protected void UpdateOrbit() {
         _orbitXY += new Vector2(Input.GetAxis(_mouseX), Input.GetAxis(_mouseY)) * MouseSensitivity;
-        _orbitXY.y = Mathf.Clamp(_orbitXY.y, -90f, 90f);
+        _orbitXY.y = Mathf.Clamp(_orbitXY.y, -17.25f, -7.25f);
     }
     protected void UpdateZoom() {
         _zoom += -Input.GetAxis(_mouseScrollWheel) * ZoomSensitivity;
