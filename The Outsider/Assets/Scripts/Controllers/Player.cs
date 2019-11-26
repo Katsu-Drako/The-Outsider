@@ -16,19 +16,16 @@ public class Player : MonoBehaviour
         _groundChecker = GetComponent<GroundChecker>();
     }
     protected void Update() {
-        if (MovementSpeed > 0)
-        {
-            _movementDirection = Vector3.ProjectOnPlane(_inputManager.GetAxis(EAxis.Horizontal) * Camera.main.transform.right + _inputManager.GetAxis(EAxis.Vertical) * Camera.main.transform.forward, Vector3.up).normalized;
-            if (_movementDirection.magnitude > 0)
-            {
-                _rigidbody.AddForce(_movementDirection * Mathf.Lerp(MovementSpeed, MovementSpeed * Time.deltaTime, _rigidbody.velocity.magnitude / MovementSpeed), ForceMode.Impulse);
-            }
-        }
+        _movementDirection = Vector3.ProjectOnPlane(_inputManager.GetAxis(EAxis.Horizontal) * Camera.main.transform.right + _inputManager.GetAxis(EAxis.Vertical) * Camera.main.transform.forward, Vector3.up).normalized;
         if (_inputManager.GetButtonDown(ECommand.Jump) && _groundChecker.bGrounded) {
             _pushForces.Add(Vector3.up * JumpPower);
         }
     }
     protected void FixedUpdate() {
+        if (_movementDirection.magnitude > 0 && MovementSpeed > 0)
+        {
+            _rigidbody.AddForce(_movementDirection * Mathf.Lerp(MovementSpeed, MovementSpeed * Time.deltaTime, _rigidbody.velocity.magnitude / MovementSpeed), ForceMode.Impulse);
+        }
         foreach (Vector3 pushForce in _pushForces) {
             _rigidbody.AddForce(pushForce, ForceMode.Impulse);
         }
