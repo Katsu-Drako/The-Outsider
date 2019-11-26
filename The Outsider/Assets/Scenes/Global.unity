@@ -153,7 +153,7 @@ MonoBehaviour:
   MouseSensitivity: 5
   ZoomSensitivity: 5
   MinZoom: 10
-  MaxZoom: 16
+  MaxZoom: 14
   Axi:
   - Name: Horizontal
     EAxis: 0
@@ -203,7 +203,7 @@ MonoBehaviour:
   - Name: Interact
     ECommand: 1
     KeyCode: 102
-  _zoom: 13
+  _zoom: 12
   _orbitXY: {x: 0, y: -12.25}
 --- !u!4 &1874850364
 Transform:
