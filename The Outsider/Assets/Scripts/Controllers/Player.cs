@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-[RequireComponent(typeof(Rigidbody), typeof(GroundChecker))]
+[RequireComponent(typeof(Rigidbody), typeof(GroundChecker), typeof(CapsuleCollider))]
 public class Player : MonoBehaviour
 {
     protected const float _jumpMovementDelay = 0.25f;
