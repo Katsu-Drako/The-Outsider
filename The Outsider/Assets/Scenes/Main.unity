@@ -206,7 +206,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!136 &27108534
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -214,7 +214,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 27108529}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: ef4705db6dd76e9449c03c5eba350d79, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
