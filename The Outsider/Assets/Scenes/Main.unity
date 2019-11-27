@@ -169,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementSpeed: 6
   JumpPower: 6
+  _cameraTransform: {fileID: 963194228}
 --- !u!114 &27108532
 MonoBehaviour:
   m_ObjectHideFlags: 0

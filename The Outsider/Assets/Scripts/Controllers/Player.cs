@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
 {
     protected const float _jumpMovementDelay = 0.25f;
     public float MovementSpeed = 6f, JumpPower = 6f;
+    [SerializeField]
+    protected Transform _cameraTransform;
     protected float _currentJumpMovementDelay;
     protected InputManager _inputManager;
     protected Rigidbody _rigidbody;
@@ -24,7 +26,7 @@ public class Player : MonoBehaviour
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
     protected void Update() {
-        _movementDirection = Vector3.ProjectOnPlane(_inputManager.GetAxis(EAxis.Horizontal) * Camera.main.transform.right + _inputManager.GetAxis(EAxis.Vertical) * Camera.main.transform.forward, Vector3.up).normalized;
+        _movementDirection = Vector3.ProjectOnPlane(_inputManager.GetAxis(EAxis.Horizontal) * _cameraTransform.right + _inputManager.GetAxis(EAxis.Vertical) * _cameraTransform.forward, Vector3.up).normalized;
         if (_inputManager.GetButtonDown(ECommand.Jump) && _groundChecker.bGrounded) {
             _pushForces.Add(Vector3.up * JumpPower);
         }
@@ -53,8 +55,8 @@ public class Player : MonoBehaviour
         }
     }
     protected void LateUpdate() {
-        Camera.main.transform.rotation = Quaternion.Euler(-_inputManager.OrbitXY.y, _inputManager.OrbitXY.x, 0);
-        Camera.main.transform.position = transform.position + _cameraOffset - Camera.main.transform.forward * _inputManager.Zoom;
+        _cameraTransform.rotation = Quaternion.Euler(-_inputManager.OrbitXY.y, _inputManager.OrbitXY.x, 0);
+        _cameraTransform.position = transform.position + _cameraOffset - _cameraTransform.forward * _inputManager.Zoom;
         float _horizontalInput = _inputManager.GetAxis(EAxis.Horizontal);
         if (_horizontalInput < 0)
         {
