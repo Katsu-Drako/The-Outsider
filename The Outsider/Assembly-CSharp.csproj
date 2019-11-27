@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\Managers\InputManager.cs" />
      <Compile Include="Assets\Scripts\Managers\Manager.cs" />
      <Compile Include="Assets\Scripts\Managers\PersistentManager.cs" />
+     <None Include="Assets\Scripts\Shaders\BillboardSurfaceShader.shader" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/user/Documents/GitHub/The-Outsider/The Outsider/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

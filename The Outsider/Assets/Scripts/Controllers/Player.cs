@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     protected Rigidbody _rigidbody;
     protected CapsuleCollider _capsuleCollider;
     protected GroundChecker _groundChecker;
+    protected SpriteRenderer _spriteRenderer;
     protected Vector3 _movementDirection = new Vector3(), _cameraOffset = Vector3.up * 1.75f, _projectedVelocity;
     protected RaycastHit[] _raycastHits = new RaycastHit[10];
     protected List<Vector3> _pushForces = new List<Vector3>();
@@ -20,6 +21,7 @@ public class Player : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
         _capsuleCollider = GetComponent<CapsuleCollider>();
         _groundChecker = GetComponent<GroundChecker>();
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
     protected void Update() {
         _movementDirection = Vector3.ProjectOnPlane(_inputManager.GetAxis(EAxis.Horizontal) * Camera.main.transform.right + _inputManager.GetAxis(EAxis.Vertical) * Camera.main.transform.forward, Vector3.up).normalized;
@@ -53,5 +55,13 @@ public class Player : MonoBehaviour
     protected void LateUpdate() {
         Camera.main.transform.rotation = Quaternion.Euler(-_inputManager.OrbitXY.y, _inputManager.OrbitXY.x, 0);
         Camera.main.transform.position = transform.position + _cameraOffset - Camera.main.transform.forward * _inputManager.Zoom;
+        float _horizontalInput = _inputManager.GetAxis(EAxis.Horizontal);
+        if (_horizontalInput < 0)
+        {
+            _spriteRenderer.flipX = false;
+        }
+        else if (_horizontalInput > 0) {
+            _spriteRenderer.flipX = true;
+        }
     }
 }
