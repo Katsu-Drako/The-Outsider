@@ -8,7 +8,7 @@ public class GroundChecker : MonoBehaviour//PersistentComponent
 {
     [Range(0, 90f)]
     public float MaxStepAngle = 45f;
-    public float GroundRaycastDistance = 0.2f;
+    public float GroundRaycastDistance = 0.05f;
     [Range(0, 1f)]
     public float GroundedFriction = 0.6f, GroundedBounciness, AirborneFriction, AirborneBounciness = 0.1f;
     public PhysicMaterialCombine GroundedFrictionCombine = PhysicMaterialCombine.Average, GroundedBounceCombine = PhysicMaterialCombine.Average, AirborneFrictionCombine = PhysicMaterialCombine.Minimum, AirborneBounceCombine = PhysicMaterialCombine.Maximum;

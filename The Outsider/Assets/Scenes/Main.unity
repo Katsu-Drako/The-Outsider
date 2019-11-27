@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxStepAngle: 45
-  GroundRaycastDistance: 0.2
+  GroundRaycastDistance: 0.05
   GroundedFriction: 0.6
   GroundedBounciness: 0
   AirborneFriction: 0
